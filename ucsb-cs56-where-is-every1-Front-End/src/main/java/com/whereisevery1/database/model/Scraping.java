@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Select;
 
+
 /*
  * TODO: - Write the loading into database method
  * 		 - Parse time, days, rooms/buildings
@@ -29,6 +30,10 @@ public class Scraping {
 		load_times_rooms_days(driver, get_subjectArea(driver));
 	}
 
+	/*
+	*	parameters:
+	*		driver	-- HtmlUnitDriver object for scraping
+	*/
 	public static ArrayList<String> get_subjectArea(HtmlUnitDriver driver){
 		Select s = new Select(driver.findElementByXPath("//*[@id=\"ctl00_pageContent_courseList\"]"));
 		ArrayList<String> temp = new ArrayList<String>();
@@ -38,6 +43,7 @@ public class Scraping {
 
 		return temp;
 	}
+
 	/*
 	*	parameters:
 	*		driver	-- HtmlUnitDriver object for scraping
@@ -52,13 +58,15 @@ public class Scraping {
 		 * add sleep() between courses
 		*/
 		for(String c : courses) {
-			//
+			//	grabs element id
 			Select course_editbox = new Select(driver.findElementByXPath("//*[@id=\"ctl00_pageContent_courseList\"]"));
 			course_editbox.selectByVisibleText(c);
 
+			//	grabs course level and changes to ALL
 			Select lvl_editbox = new Select(driver.findElementByXPath("//*[@id=\"ctl00_pageContent_dropDownCourseLevels\"]"));
 			lvl_editbox.selectByVisibleText("All");
 
+			//	grabs element id and clicks
 			WebElement search_button = driver.findElementByXPath("//*[@id=\"ctl00_pageContent_searchButton\"]");
 			search_button.click();
 
