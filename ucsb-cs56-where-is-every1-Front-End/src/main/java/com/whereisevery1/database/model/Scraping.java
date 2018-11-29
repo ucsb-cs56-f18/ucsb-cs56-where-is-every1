@@ -106,7 +106,7 @@ public class Scraping {
 			}
 
 			// random delay
-			Thread.sleep(r);
+			Thread.sleep((long) r);
 		}
 	}
 }
