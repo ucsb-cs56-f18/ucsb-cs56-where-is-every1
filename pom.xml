@@ -47,9 +47,15 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- <dependency> -->
+		<!-- <groupId>org.mongodb</groupId> -->
+		<!-- <artifactId>mongo-java-driver</artifactId> -->
+		<!-- </dependency> -->
+
 		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongo-java-driver</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.3</version>
 		</dependency>
 
 		<dependency>
@@ -80,7 +86,8 @@
 					<processTypes>
 						<!-- Tell Heroku how to launch your application -->
 						<!-- You might have to remove the ./ in front -->
-						<web>java $JAVA_OPTS -jar target/ucsb-where-is-every1-0.0.1.jar --server.port=$PORT</web>
+						<web>java $JAVA_OPTS -jar target/ucsb-where-is-every1-0.0.1.jar
+							--server.port=$PORT</web>
 
 					</processTypes>
 				</configuration>
