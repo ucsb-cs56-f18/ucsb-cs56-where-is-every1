@@ -31,33 +31,35 @@
 			<h1>WhereIsEvery1?</h1>
 			<p>Select a building, room number, and day of the week to see what times there are classes held in the room on that day.</p>
 		</div>
-		<h1>Search For Classrooms</h1>
-		<form action="#" th:action="@{/}" th:object="${roomrequest}"
-			method="post">
-			<p>
-				Building<br /> <input onblur="this.form.submit()"
-					class="inputField" type="text" maxlength="20"
-					th:field="*{buildingName}" list="buildingList" />
+		<div class="searchArea">
+			<h1>Search For Classrooms</h1>
+			<form action="#" th:action="@{/}" th:object="${roomrequest}"
+				method="post">
+				<p>
+					Building<br /> <input onblur="this.form.submit()"
+						class="inputField" type="text" maxlength="20"
+						th:field="*{buildingName}" list="buildingList" />
 
-				<datalist id="buildingList">
-					<option th:each="row : ${buildinglist}"
-						th:value="${row.getBuildingName()}"
-						th:label="${row.getBuildingName()}" />
-				</datalist>
-			</p>
-			<p>
-				Room Number<br /> <input class="inputField" type="text"
-					th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
-				<datalist id="rooms">
-					<option th:each="room : ${roomlist}"
-						th:value="${room.getRoomNumber()}" />
-				</datalist>
-			</p>
-			<p>
-				<input type="submit" value="Submit" /> <input type="reset"
-					value="Reset" />
-			</p>
-		</form>
+					<datalist id="buildingList">
+						<option th:each="row : ${buildinglist}"
+							th:value="${row.getBuildingName()}"
+							th:label="${row.getBuildingName()}" />
+					</datalist>
+				</p>
+				<p>
+					Room Number<br /> <input class="inputField" type="text"
+						th:field="*{roomNumber}" list="rooms" autofocus="true" value="" />
+					<datalist id="rooms">
+						<option th:each="room : ${roomlist}"
+							th:value="${room.getRoomNumber()}" />
+					</datalist>
+				</p>
+				<p>
+					<input type="submit" value="Submit" /> <input type="reset"
+						value="Reset" />
+				</p>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
